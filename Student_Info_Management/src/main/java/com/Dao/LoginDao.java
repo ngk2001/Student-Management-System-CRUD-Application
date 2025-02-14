@@ -15,12 +15,10 @@ public class LoginDao extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	String sql="select * from Admin where USERNAME=? and PASSWORD=?";
 	String url="jdbc:oracle:thin:@localhost:1521:XE";
-
 		public boolean check(String uname, String psw) throws Exception, IOException, SQLException {
-
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection con=DriverManager.getConnection(url,"admin","admin");
-			PreparedStatement pst = con.prepareStatement(sql);
+			try(Connection con=DriverManager.getConnection(url,"admin","admin");
+			PreparedStatement pst = con.prepareStatement(sql)){
 			pst.setString(1, uname);
 			pst.setString(2, psw);
 			ResultSet rs=pst.executeQuery();
@@ -28,6 +26,7 @@ public class LoginDao extends HttpServlet {
 			return true;
 			}else {
 				return false;
+			}
 			}
 		}
 	}

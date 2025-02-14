@@ -15,23 +15,23 @@
 		<%
 		response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
 		String LoginError = (String) session.getAttribute("LoginError");
-		String IdNotFound = (String) session.getAttribute("IdNotFound");
+		String IdNotFound = (String) request.getAttribute("IdNotFound");
 		if (LoginError != null) {
 		out.print(LoginError);
 		session.removeAttribute("LoginError");
 		}
 		if(IdNotFound != null){
 			out.print(IdNotFound);
-			session.removeAttribute("IdNotFound");
 		}
 		%>
 	</h3>
 	<h2>Welcome </h2>
 	<div>
 	<form action="Login" method="post">
-		<b>UserName:</b><input type="text" name="username"><br>
-		<b>Password:</b><input type="password" name="password"><br>
-		<br> <input type="submit" value="Login">
+	
+		<lable><b>UserName:</b></lable><input type="text" name="username"><br>
+		<lable><b>Password:</b></lable><input type="password" name="password"><br>
+		<br><input type="submit" value="Login">
 	</form>
 	</div>
 </body>

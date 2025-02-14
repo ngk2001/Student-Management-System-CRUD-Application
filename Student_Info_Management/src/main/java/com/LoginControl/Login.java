@@ -1,9 +1,6 @@
 package com.LoginControl;
-
 import java.io.IOException;
-
 import com.Dao.LoginDao;
-
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -28,13 +25,11 @@ public class Login extends HttpServlet {
 			}
 			else {
 				RequestDispatcher rd = req.getRequestDispatcher("Login.jsp");
-				ses.setAttribute("IdNotFound", "Please Enter Valid UserID and Password!");
+				req.setAttribute("IdNotFound", "Please Enter Valid UserID and Password!");
 				rd.forward(req,res);
 				}
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
-
 }
