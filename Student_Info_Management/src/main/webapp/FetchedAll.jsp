@@ -4,10 +4,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="style.css">
 <title>Fetching All</title>
 </head>
-<body>
-
+<body style="height: 100vh">
+<h2>Student Details</h2>
 <% try{
 	 response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
 	 if(session.getAttribute("Username")==null){
@@ -20,8 +21,10 @@
 	
 	<%}else{
 		ArrayList<StudentObject> Students =(ArrayList<StudentObject>) request.getAttribute("StudentList"); %>
-		<table border="1">
+		<div id="container">
+		<table border="1" class="fetch">
 		<thead>
+		<tr>
 		<th>Student Name</th>
 		<th>Register Number</th>
 		<th>Gender</th>
@@ -29,7 +32,7 @@
 		<th>Department</th>
 		<th>Phone Number</th>
 		<th>Address</th>
-		</thead>
+		</tr></thead>
 		<tbody>
 		<%for(StudentObject Student: Students){%>
 	   <tr><td><%=Student.getStudentName()%>
@@ -42,6 +45,7 @@
 		<%}%> 
 		</tbody>
 		</table>
+		</div>
 		
 	
 	<% }

@@ -5,9 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="style.css">
-<title>Admin Access</title>
+<title>Admin Access</title>  
 </head>
-<body>
+<body style="height: 100vh;">
     <h2>Welcome</h2>
 	<h4 style="color: red">
 		<%
@@ -25,7 +25,7 @@
 	</h4>
 	<div id="container">
 	<h2>Admin Login</h2>
-	<div>
+	<div class="login">
 	<form action="Login" method="post">
 		<input type="text" name="username" placeholder="Username"><br><br>
 		<input type="password" name="password" placeholder="Password"><br>

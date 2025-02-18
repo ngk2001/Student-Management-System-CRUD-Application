@@ -3,12 +3,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="style.css">
 <meta charset="UTF-8">
 <title>Edit Details</title>
 </head>
 <body>
 <% 
-	 response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+	// response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
 	 if(session.getAttribute("Username")==null){
 		 session.setAttribute("LoginError", "Please Login to Access!");
 	     response.sendRedirect("Login.jsp");
@@ -23,8 +24,11 @@
 	%>
 	<%}else{
 		ArrayList<StudentObject> Students =(ArrayList<StudentObject>) request.getAttribute("StudentList"); %>
-		<table border="1">
+<div id="container" >
+
+		<table border="1" class="fetch">
 		<thead>
+		<tr>
 		<th>Student Name</th>
 		<th>Register Number</th>
 		<th>Gender</th>
@@ -33,6 +37,7 @@
 		<th>Phone Number</th>
 		<th>Address</th>
 		<th colspan="2">Edit</th>
+		</tr>
 		</thead>
 		<tbody>
 		<%for(StudentObject Student: Students){%>
@@ -50,6 +55,7 @@
 		<%}%> 
 		</tbody>
 		</table>
+		</div>
 	<%}%>
 </body>
 </html>

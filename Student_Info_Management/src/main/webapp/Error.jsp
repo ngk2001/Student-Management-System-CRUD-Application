@@ -3,8 +3,9 @@
 <html>
 <head>
     <title>Error Page</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body style="height: 100vh;">
     <h2>Oops! Something went wrong.</h2>
     <%if(request.getParameter("E")!=null){
     	out.print((String)request.getParameter("E"));

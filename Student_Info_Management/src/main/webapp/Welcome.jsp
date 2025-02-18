@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="style.css">
 <title>Student Info Management</title>
 </head>
-<body>
+<body style="height: 100vh;">
 <h1>Student Info Management</h1>
  <%  
  response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
@@ -16,8 +16,8 @@
      response.sendRedirect("Login.jsp");
  }
  %>
- <div id="container">
-<table>
+ <div id="container" >
+<table class="welcome">
 <tr><td><a href="AddStudent.jsp"><input type="button" value="Add Student"></a>
 <tr><td><a href="FetchStudent.jsp"><input type="button" value="Fetch Student"></a>
 <tr><td><form action="EditStudent" method="post"><input type="submit" value="Edit Details"></form>

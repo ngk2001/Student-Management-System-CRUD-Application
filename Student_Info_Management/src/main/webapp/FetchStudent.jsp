@@ -1,7 +1,10 @@
-
+<head>
+<link rel="stylesheet" href="style.css">
 <title>FetchStudent</title>
-<body>
-<h3 style= "color:red">
+</head>
+<body style="height: 100vh;">
+<h2>Search Student</h2>
+<h4 style= "color:red">
 <%try{
 	 response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
 	 if(session.getAttribute("Username")==null){
@@ -17,17 +20,18 @@
 		out.print(ErrorMsg);
 	}
 }
-catch(Exception e){response.sendRedirect("Error.jsp");}%></h3>
-<form action="FetchServlet" method="post">
-<label for="Stname">Search by Name:</label>
-<input type="text" name="Stname">
-<input type="submit"  value="Search"></form><br> 
-<h3>OR</h3><br>
-<form action="FetchServlet" method="post">
-<label for="Rgnumber">Search by Register Number:</label><input type="text" name="Rgnumber">
-<input type="submit" value="Search"></form><br>
-<h3>OR</h3><br>
+catch(Exception e){response.sendRedirect("Error.jsp");}%></h4>
+<div id="container" class="register">
+<form  action="FetchServlet" method="post">
+<input type="search" name="Stname" placeholder="Search by Name"><br>
+<input type="submit"  value="Search"></form> 
+<h3 style="color:black">OR</h3>
+<form action="FetchServlet" method="post" >
+<input type="search" name="Rgnumber" placeholder="Search by Register Number"><br>
+<input type="submit" value="Search"></form>
+<h3 style="color:black">OR</h3>
 <form action="FetchServlet" method="post">
 <input type="submit" name="FetchAll" value="Fetch All">
 </form>
+</div>
 </body>
