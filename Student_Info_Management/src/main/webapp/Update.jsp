@@ -7,6 +7,57 @@
 <link rel="stylesheet" href="style.css">
 <meta charset="UTF-8">
 <title>Edit</title>
+<script type="text/javascript">
+function validateForm() {
+    var sname = document.forms["studentForm"]["Sname"].value.trim();
+    var rnumber = document.forms["studentForm"]["Rnumber"].value.trim();
+    var gender = document.forms["studentForm"]["gender"].value;
+    var dob = document.forms["studentForm"]["DateofBirth"].value;
+    var department = document.forms["studentForm"]["Department"].value;
+    var phnumber = document.forms["studentForm"]["Phnumber"].value.trim();
+    var address = document.forms["studentForm"]["Address"].value.trim();
+
+    var nameRegex = /^[A-Za-z\s]+$/;
+    if (!nameRegex.test(sname)) {
+        alert("Student Name must contain only alphabets and spaces.");
+        return false;
+    }
+
+    var rnumberRegex = /^\d{5}$/;
+    if (!rnumberRegex.test(rnumber)) {
+        alert("Register Number must be exactly 5 digits.");
+        return false;
+    }
+
+    var phoneRegex = /^[6789]\d{9}$/;
+    if (!phoneRegex.test(phnumber)) {
+        alert("Phone Number must be a 10-digit Indian number starting with 9, 7, 8, or 6.");
+        return false;
+    }
+
+    if (gender == "") {
+        alert("Gender must be selected.");
+        return false;
+    }
+
+    if (dob == "") {
+        alert("Date of Birth must be selected.");
+        return false;
+    }
+
+    if (department == "") {
+        alert("Department must be selected.");
+        return false;
+    }
+
+    if (address == "") {
+        alert("Address must be filled out.");
+        return false;
+    }
+
+    return true;
+}
+</script>
 </head>
 <body style="height: 100vh;">
    <h2>Edit Student</h2>
@@ -34,7 +85,7 @@
 			String Address = FetchedStudent.getAddress();
 	%>
 	<div id="container" class="update">
-	 <form action="Update" method="post" >
+	 <form action="Update" method="post" onsubmit="return validateForm()" >
         <input type="hidden" name="OldRgnumber" value="<%=studentup.getRegisterNumber()%>" required>
 
          <table>
